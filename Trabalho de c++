@@ -1,1 +1,82 @@
+#include <iostream>
 
+using namespace std;
+
+int main(){ 
+
+string produto[7] = {"doritos","coca", "cheetos", "kitkat", "amendoim", "jujubas", "guarana"};
+int pagar, troco, i, fatura, j;
+float valor[7];
+string rec;
+string value[2] = {"sim", "nao"};
+
+// modo usuário
+// valores meramente ilustrativos
+  
+ cout << " ------ Bem vindo ao Vending Machine ADS ------  \n  ";
+  
+ cout << "\n Doritos - R$ 5,00\n Coca - R$ 7,00\n Cheetos - R$ 4,00\n KitKat - R$ 6,00\n Amendoim - R$ 3,00\n JuJubas - R$ 2,00\n Guaraná - R$ 6,00 "; 
+
+
+ cout << "\n \n *** Insira o nome do produto que deseja (tudo junto e em minúsculo sem acento) *** :";
+ cin >> produto[i];
+ if (produto[i] == "doritos") {
+   valor[i] = 5;
+ }
+if (produto[i] == "coca") {
+  valor[i] = 7;
+ }
+if (produto[i] == "cheetos") {
+  valor[i] = 4;
+  }
+if (produto[i] == "kitkat") {
+  valor[i] = 6;
+  }
+if (produto[i] == "amendoim") {
+  valor[i] = 3;
+   }
+if (produto[i] == "jujubas") {
+  valor[i] = 2;
+   }
+  if (produto[i] == "guarana") {
+  valor[i] = 6;
+  } 
+
+if (valor[i]) {
+ cout << "\nInsira seu dinheiro: ";
+ cin >> pagar;
+} 
+ 
+ while (pagar < valor[i]) {
+   cout << "\nVALOR INSUFICIENTE!! ";
+   cout << "\nDeseja recomeçar? Caso queira, digite 'sim', caso não, digite 'nao' ";
+   cin >> value[i];
+ if (value[i] == "sim") {
+   cout << "\nInsira seu dinheiro: ";
+   cin >> pagar;
+ } 
+ if (value[i] != "sim"){
+  cout << "\nSeu pagamento não foi confirmado! ";
+  return 0;
+ }
+ }
+
+ if (pagar > valor[i]) {
+   troco = pagar - valor[i];
+   cout << "\nSeu troco ficou por R$ " << troco;
+}
+ if (pagar == valor[i]){ 
+  cout << "Sem troco!";
+}
+  cout << "\nObrigada por comprar, volte sempre " << endl; 
+
+ // modo administrador em relação ao faturamento de cada produto comprado 
+  
+  cout << "\n---- Modo Administrador: ----\n";
+  
+for (fatura=0; fatura<1; fatura++) { 
+    fatura += valor[i];
+    cout << "A fatura é de R$ " << fatura << endl;
+}
+
+}
